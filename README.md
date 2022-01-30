@@ -14,16 +14,16 @@ In this project, I use data source from https://www.kaggle.com/rsrishav/youtube-
 I have built a data pipeline that will transform the dataset into readable diagram and word cloud for analysis.
 Below are some example of graph generated (data of ~ July 2021 - Jan 2022)
 
-**GB word cloud
+**GB word cloud**
 ![GB_wordcloud](output/GB_wordcloud.png)
 
-**US word cloud:
+**US word cloud**
 ![US_wordcloud](output/US_wordcloud.png)
 
-**GB most trending category (base on number of trending video)
+**GB most trending category (base on number of trending video)**
 ![GB_trending](output/GB_most_trending_category.png)
 
-**US most trending category (base on number of trending video)
+**US most trending category (base on number of trending video)**
 ![US_trending](output/US_most_trending_category.png)
 
 # Pipeline
