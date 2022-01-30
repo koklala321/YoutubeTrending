@@ -14,14 +14,17 @@ In this project, I use data source from https://www.kaggle.com/rsrishav/youtube-
 I have built a data pipeline that will transform the dataset into readable diagram and word cloud for analysis.
 Below are some example of graph generated (data of ~ July 2021 - Jan 2022)
 
-![US_wordcloud](output/US_wordcloud.png)
-
+**GB word cloud
 ![GB_wordcloud](output/GB_wordcloud.png)
 
-![US_trending](output/US_most_trending_category.png)
+**US word cloud:
+![US_wordcloud](output/US_wordcloud.png)
 
+**GB most trending category (base on number of trending video)
 ![GB_trending](output/GB_most_trending_category.png)
 
+**US most trending category (base on number of trending video)
+![US_trending](output/US_most_trending_category.png)
 
 # Pipeline
 I built a pipeline that use aws lambda to preprocess the input csv , store it in s3, and later process the data with spark and python for plotting and analysis.
@@ -63,9 +66,15 @@ If you are running it locally , you will also need to set up HADOOP_HOME and dow
 * Findspark
 * Seaborn
 * Spark nlp
+* AWS Data Wrangler
+* Pandas
 
 # Environment Setup
-Install and configure [AWS](https://aws.amazon.com/cli/).
+
+For Lambda function, it is important to use a layer so to allow we use aws data wrangler and Pandas to process the file stored in S3 bucket.
+You can download it in their Github release page, pack it and uplaod it as a layer .https://github.com/awslabs/aws-data-wrangler/releases
+
+Install and configure base on  [AWS](https://aws.amazon.com/cli/).
 
 Check if you have Java 8/Java 11 installed (required by spark-nlp)
 If using conda:
