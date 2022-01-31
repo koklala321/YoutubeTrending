@@ -8,6 +8,8 @@
 # Introduction
 **Youtube Trending - create a data pipeline to process youtube trending data**
 
+![Python](https://img.shields.io/badge/Python-blue) ![Spark](https://img.shields.io/badge/Spark-3.1.2-yellow)
+
 This project is completed in 2 weeks , as a opportunity to learn building a data pipeline using Amazon cloud service, and using spark-nlp librabry to do data cleasing and create a meaningful wordcloud
 
 In this project, I use data source from https://www.kaggle.com/rsrishav/youtube-trending-video-dataset . The data source provide dataset of data on daily trending YouTube videos, in different region from  IN, US, GB, DE, CA, FR, RU, BR, MX, KR, and JP.
