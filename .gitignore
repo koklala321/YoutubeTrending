@@ -1,0 +1,4 @@
+#ignore spark-warehouse
+spark-warehouse
+#ignore .ipynb_checkpoints
+.ipynb_checkpoints

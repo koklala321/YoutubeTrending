@@ -3,7 +3,7 @@ findspark.init()
 import pyspark
 from time import sleep
 from pathlib import Path
-from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession,Window
 import pyspark.sql.functions as F
 from pyspark.sql.types import *
 import matplotlib.pyplot as plt
@@ -57,6 +57,15 @@ def process_csv(spark,csv):
     trending_count = df_pyspark.groupby("video_id").count().withColumnRenamed("count","trendCount")
 
     df_pyspark = df_pyspark.join(trending_count,"video_id").select(df_pyspark["*"],trending_count["trendCount"])
+    
+    
+    #use window function to drop all duplicate row
+    win = Window.partitionBy("video_id").orderBy("trending_date")
+    
+    df_pyspark = df_pyspark.withColumn('rank', F.row_number().over(Window.partitionBy(df_pyspark.video_id).orderBy(df_pyspark.trending_date.desc())))\
+                        .filter(F.col('rank') == 1)\
+                        .drop("rank")
+
     
     ############################################################
     #read category name from json and add to df
